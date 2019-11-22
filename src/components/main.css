@@ -1,0 +1,49 @@
+body{
+    background: linear-gradient(to top,#c2cad3, #fff );
+    min-width: 100vw;
+    min-height: 100vh;
+    max-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#content{
+    margin-top:30vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: fit-content;
+}
+
+#form{
+    display: flex;
+    align-items: center;
+}
+
+#textInput{
+    min-width: 15vmax;
+    width: 15vw;
+    height: 1.5vmax;
+    padding: 1vmax;
+    border: none;
+    border-radius: .2vmax;
+    transition: all ease .3s;
+    margin-right:.5vw ;
+}
+#textInput:focus, #textInput:active,#textInput:hover, #addBtn:hover, #addBtn:active{
+    box-shadow: #ee5253 0 0 10px;
+}
+#addBtn{
+    padding: 1vmax;
+    padding-left: 1.5vmax;
+    padding-right: 1.5vmax;
+    border: none;
+    border-radius: 0.2vmax;
+    background: #576574;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 1.5vmax;
+    transition: all ease .3s;
+}
+#item{
+
+}
