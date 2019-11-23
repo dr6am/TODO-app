@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 body{
-    background: linear-gradient(to top,#c2cad3, #fff );
+    background: #8bf6ff;
+    /*background-image: linear-gradient(60deg, #a1c4fd 0%, #c2e9fb 100%);*/
     min-width: 100vw;
     min-height: 100vh;
     max-height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 #content{
     margin-top:30vh;
@@ -17,33 +21,61 @@ body{
 #form{
     display: flex;
     align-items: center;
+    align-content: center;
+    min-width: 150px;
+    width: 20vw;
+    height: 4vh;
+    margin-bottom: 7%;
+    max-width: 711px;
+    max-height: 30px;
 }
 
 #textInput{
-    min-width: 15vmax;
-    width: 15vw;
+    min-width: 120px;
+    width: auto;
     height: 1.5vmax;
-    padding: 1vmax;
+    padding: 6%;
     border: none;
-    border-radius: .2vmax;
+    border-radius: .4vmax;
     transition: all ease .3s;
     margin-right:.5vw ;
+    font-size: 1.5vmax;
+    font-weight: 500;
 }
 #textInput:focus, #textInput:active,#textInput:hover, #addBtn:hover, #addBtn:active{
     box-shadow: #ee5253 0 0 10px;
+    transform: scale(1.1);
+    transform: translateY(-2px);
 }
 #addBtn{
-    padding: 1vmax;
-    padding-left: 1.5vmax;
-    padding-right: 1.5vmax;
+    padding: 5%;
+    padding-left: 6%;
+    padding-right: 6%;
     border: none;
-    border-radius: 0.2vmax;
-    background: #576574;
-    color: aliceblue;
+    border-radius: 0.3vmax;
+    background: #4fc3f7;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 1.5vmax;
     transition: all ease .3s;
 }
 #item{
-
+    min-width: 175px;
+    width: 20vw;
+    height: fit-content;
+    padding: 1vmax;
+    padding-left: 2vw;
+    background: #4fc3f7;
+    padding: .1vmax;
+    transition: all ease .3s;
+    margin-top: .5vh;
+    border-radius: .5vmax;
+    
+}
+#item p{
+    font-size: 1.5vmax;
+    margin: 1vmax;
+}
+#item:hover{
+    box-shadow: #1dd1a1 0 0 10px; 
 }
