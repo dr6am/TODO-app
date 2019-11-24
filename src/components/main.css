@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 body{
     background: #8bf6ff;
-    /*background-image: linear-gradient(60deg, #a1c4fd 0%, #c2e9fb 100%);*/
-    min-width: 100vw;
-    min-height: 100vh;
-    max-height: 100%;
+    
+    min-height: max-content;
     padding: 0;
     margin: 0;
-    overflow: hidden;
-    font-family: 'Roboto', sans-serif;
 }
+#title{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 3vmax;
+    text-align: center;
+    margin-bottom: 15vh;
+}
+@-moz-document url-prefix() {
+    #title{
+        font-family: 'Bree Serif', serif;
+        font-weight: 600;
+    }  
+  }
 #content{
-    margin-top:30vh;
+    margin-top:20vh;
     margin-left: auto;
     margin-right: auto;
     height: fit-content;
@@ -43,7 +55,7 @@ body{
     font-weight: 500;
 }
 #textInput:focus, #textInput:active,#textInput:hover, #addBtn:hover, #addBtn:active{
-    box-shadow: #ee5253 0 0 10px;
+    box-shadow: #fff 0 0 10px;
     transform: scale(1.1);
     transform: translateY(-2px);
 }
@@ -56,8 +68,12 @@ body{
     background: #4fc3f7;
     color: rgb(0, 0, 0);
     font-weight: bold;
+    text-transform: uppercase;
     font-size: 1.5vmax;
     transition: all ease .3s;
+    font-family: 'Roboto', sans-serif;
+
+
 }
 #item{
     min-width: 175px;
@@ -65,17 +81,22 @@ body{
     height: fit-content;
     padding: 1vmax;
     padding-left: 2vw;
-    background: #4fc3f7;
+    background: #4fc2f7c2;
     padding: .1vmax;
     transition: all ease .3s;
     margin-top: .5vh;
     border-radius: .5vmax;
-    
+    font-weight: 500;
+}
+#item:last-of-type{
+    margin-bottom: 10vh;
 }
 #item p{
     font-size: 1.5vmax;
     margin: 1vmax;
+    font-family: 'Open Sans', sans-serif;
 }
 #item:hover{
-    box-shadow: #1dd1a1 0 0 10px; 
+    box-shadow: #fff 0 0 10px;
+    background: #4fc2f7;
 }

@@ -2,7 +2,7 @@
   "name": "todo-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://dr6am.github.io/TODO-app",
+  "homepage": "http://dr6am.github.io/todo-app",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
