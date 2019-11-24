@@ -6,10 +6,11 @@ import { Title } from './Title';
 class TODOlist extends React.Component {
     constructor() {
         super()
-        
-        try {
-            this.state = { data: JSON.parse(localStorage.getItem('data')) }
-        } catch (e) {
+        if (localStorage.getItem('data') != null) {
+            if (localStorage.getItem('data').length > 1)
+                this.state = { data: JSON.parse(localStorage.getItem('data')) }
+
+        } else {
             this.state = { data: [] }
             localStorage.getItem('data', '[]')
         }
@@ -19,28 +20,46 @@ class TODOlist extends React.Component {
         data: []
     }
     LocalSave(data) {
-        localStorage.setItem('data', JSON.stringify(data));
+        if (Array.isArray(data) && data != null)
+            localStorage.setItem('data', JSON.stringify(data));
     }
-    static DeleteLocal(e) {
-        const id = e.target.id
-        var oldData = JSON.parse(localStorage.getItem('data'));
-        var newData;
-        oldData.forEach((item, index) => {
-            if (item.id !== id) {
-                newData += item
-            }
-        })
+    UpdateList() {
+        
+    }
+    DeleteLocal = (e) => {
+        const id = parseInt(e.target.id)
+        var data = JSON.parse(localStorage.getItem('data'));
 
-        localStorage.setItem('data', JSON.stringify(newData));
-        this.setState({ data: newData })
+        if (Array.isArray(data)) {
+            data.forEach((item, index) => {
+                if (item != null) {
+                    if (item.id === id) {
+                        delete data[index]
+                    }
+                    
+                }
+            })
+            this.LocalSave(data)
+        } else {
+            localStorage.getItem('data', '[]')
+        }
+        this.setState({ data: data });
+        
+    }
+    UpdateState = () => {
+        if (localStorage.getItem('data') != null) {
+            if (localStorage.getItem('data').length > 1)
+                this.setState({ data: JSON.parse(localStorage.getItem('data')) })
 
-        console.log(e.target.id)
+        } else {
+            this.setState({ data: [] })
+            localStorage.getItem('data', '[]')
+        }
     }
     AddToDo = (e) => {
         var text = document.getElementById("textInput").value;
         if (text.length > 1) {
-            const id = this.state.data.lenght || 0;
-            console.log(this.state.data.length)
+            const id = this.state.data.length ? this.state.data.length : 0;
             const element = [{ id: id, text: text }];
             const newarray = this.state.data.concat(element);
             this.LocalSave(newarray);
@@ -58,7 +77,14 @@ class TODOlist extends React.Component {
                     <button id="addBtn" onClick={this.AddToDo}>add</button>
 
                 </div>
-                {this.state.data.map(item => <Item key={item.id} id={item.id} delete={this.DeleteLocal} text={item.text} />)}
+
+                {Array.isArray(this.state.data) &&
+                    this.state.data.map(item => {
+                        if(item != null)
+                            return (<Item id={item.id} delete={this.DeleteLocal} text={item.text} key={item.id.toString()} />)
+                    })
+                }
+                {!Array.isArray(this.state.data) && 'loading...' && this.UpdateState()}
             </div>
         )
     }
